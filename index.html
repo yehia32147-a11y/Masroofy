@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>Masroofy | Business Assistant</title>
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--bg:#f3f6fb;--panel:#fff;--ink:#172033;--muted:#718096;--line:#e6ebf2;--nav:#101827;--blue:#4568f5;--blue2:#edf1ff;--green:#13865b;--red:#c34444;--shadow:0 8px 28px rgba(25,39,65,.06)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{min-height:100vh;display:grid;grid-template-columns:245px 1fr}
+.sidebar{background:var(--nav);color:#fff;padding:25px 17px;display:flex;flex-direction:column;gap:24px}.brand{display:flex;align-items:center;gap:11px;padding:0 8px}.logo{width:39px;height:39px;border-radius:12px;background:linear-gradient(135deg,#6f8cff,#4568f5);display:grid;place-items:center;font-weight:900;font-size:20px}.brand strong{font-size:20px;letter-spacing:.2px}.brand small{display:block;color:#9aa8bf;font-size:11px;margin-top:-3px}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;color:#aab6ca;text-align:left;padding:12px 13px;border-radius:10px;display:flex;gap:12px;align-items:center}.nav button.active,.nav button:hover{background:#202c40;color:#fff}.nav .ico{width:20px;text-align:center}.side-note{margin-top:auto;border:1px solid #2c3a50;border-radius:13px;padding:13px;color:#aebbd0;font-size:12px}.side-note b{color:white;display:block;margin-bottom:4px}
+main{padding:28px 34px;max-width:1450px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:25px}.eyebrow{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}.top h1{font-size:27px;margin:3px 0 0}.top-actions{display:flex;gap:9px;align-items:center}.lang,.primary,.secondary,.danger{border:0;border-radius:10px;padding:10px 14px;font-weight:650}.lang,.secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}.primary{background:var(--blue);color:white}.danger{background:#fff0f0;color:var(--red);border:1px solid #ffdada}.welcome{background:linear-gradient(110deg,#182744,#263f73);border-radius:17px;color:#fff;padding:22px 24px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;gap:16px}.welcome h2{margin:0 0 5px;font-size:21px}.welcome p{margin:0;color:#d2def5}.welcome .spark{font-size:35px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:var(--shadow)}.stat-label{color:var(--muted);font-size:13px}.stat-value{font-size:25px;font-weight:800;margin:7px 0 2px;letter-spacing:-.5px}.stat-sub{font-size:12px;color:var(--muted)}.stat-icon{float:right;width:34px;height:34px;border-radius:10px;background:var(--blue2);display:grid;place-items:center}
+.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:16px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.section-head h3{margin:0;font-size:16px}.muted{color:var(--muted)}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:490px}th,td{text-align:start;padding:11px 9px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:650}tbody tr:last-child td{border-bottom:0}.empty{text-align:center;padding:25px;color:var(--muted);font-size:13px}.pill{display:inline-block;padding:4px 8px;border-radius:30px;font-size:11px;background:#eaf8f1;color:var(--green);font-weight:700}.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quick button{padding:14px;text-align:left;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:650}.quick button span{display:block;color:var(--muted);font-size:12px;font-weight:400;margin-top:4px}.view{display:none}.view.active{display:block}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:grid;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#566277}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink);outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #4568f51a}.actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:13px}.toolbar input{border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff;min-width:190px}.replybox{white-space:pre-wrap;background:#f7f9fd;border:1px solid var(--line);border-radius:11px;padding:14px;margin-top:12px;min-height:90px;font-size:13px}.notice{font-size:12px;color:var(--muted);margin-top:12px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#172033;color:white;padding:11px 16px;border-radius:10px;box-shadow:var(--shadow);display:none;z-index:10}.rtl{direction:rtl}.rtl .sidebar{direction:rtl}.rtl .nav button{text-align:right}.rtl .welcome{direction:rtl}.rtl th,.rtl td{text-align:right}
+@media(max-width:950px){.shell{grid-template-columns:1fr}.sidebar{padding:13px 14px;gap:12px}.brand{padding:0 3px}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px 11px}.side-note{display:none}main{padding:22px 16px}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.top{align-items:flex-start}.top h1{font-size:22px}.welcome{padding:18px}.grid2{grid-template-columns:1fr}.stats{gap:9px}.card{padding:14px}.stat-value{font-size:21px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.top-actions{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<div class="shell" id="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">M</div><div><strong>Masroofy</strong><small data-i="tagline">Your business, clearer.</small></div></div>
+  <nav class="nav">
+    <button class="active" data-view="dashboard"><span class="ico">▦</span><span data-i="dashboard">Dashboard</span></button>
+    <button data-view="orders"><span class="ico">▤</span><span data-i="orders">Orders</span></button>
+    <button data-view="inventory"><span class="ico">□</span><span data-i="inventory">Inventory</span></button>
+    <button data-view="assistant"><span class="ico">✦</span><span data-i="assistant">Reply helper</span></button>
+  </nav>
+  <div class="side-note"><b data-i="localdata">Your data stays on this device</b><span data-i="localdesc">This starter version saves to this browser. Export a backup regularly.</span></div>
+</aside>
+<main>
+  <header class="top">
+    <div><div class="eyebrow" data-i="workspace">BUSINESS WORKSPACE</div><h1 id="pageTitle" data-i="dashboard">Dashboard</h1></div>
+    <div class="top-actions"><button class="lang" id="langBtn">العربية</button><button class="secondary" id="exportBtn" data-i="export">Export backup</button></div>
+  </header>
+
+  <section class="view active" id="dashboard">
+    <div class="welcome"><div><h2 data-i="welcome">Run your business with less guesswork.</h2><p data-i="welcomeSub">A simple place to track orders, stock and money.</p></div><div class="spark">✦</div></div>
+    <div class="stats">
+      <div class="card"><div class="stat-icon">↗</div><div class="stat-label" data-i="revenue">Total sales</div><div class="stat-value" id="revenue">0 EGP</div><div class="stat-sub" data-i="revenueSub">From recorded orders</div></div>
+      <div class="card"><div class="stat-icon">▤</div><div class="stat-label" data-i="ordersCount">Orders</div><div class="stat-value" id="ordersCountVal">0</div><div class="stat-sub" data-i="ordersSub">All recorded orders</div></div>
+      <div class="card"><div class="stat-icon">□</div><div class="stat-label" data-i="stock">Products in stock</div><div class="stat-value" id="stockVal">0</div><div class="stat-sub" data-i="stockSub">Total available units</div></div>
+      <div class="card"><div class="stat-icon">◎</div><div class="stat-label" data-i="profit">Estimated profit</div><div class="stat-value" id="profitVal">0 EGP</div><div class="stat-sub" data-i="profitSub">Sales minus recorded costs</div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><div class="section-head"><h3 data-i="recent">Recent orders</h3><button class="secondary" data-go="orders" data-i="viewAll">View all</button></div><div class="table-wrap"><table><thead><tr><th data-i="customer">Customer</th><th data-i="item">Item</th><th data-i="total">Total</th><th data-i="status">Status</th></tr></thead><tbody id="recentRows"></tbody></table></div></div>
+      <div class="card"><div class="section-head"><h3 data-i="shortcuts">Quick actions</h3></div><div class="quick"><button data-go="orders">＋ <span data-i="addOrder">Add an order</span><span data-i="addOrderSub">Record a new sale</span></button><button data-go="inventory">＋ <span data-i="addProduct">Add a product</span><span data-i="addProductSub">Update your stock</span></button><button data-go="assistant">✦ <span data-i="replyCustomer">Reply to a customer</span><span data-i="replySub">Create a quick response</span></button><button id="sampleBtn">◇ <span data-i="sample">Load demo data</span><span data-i="sampleSub">See how the dashboard works</span></button></div><p class="notice" data-i="demoNote">Demo data is only an example. You can clear it by deleting the sample entries.</p></div>
+    </div>
+  </section>
+
+  <section class="view" id="orders">
+    <div class="card">
+      <div class="section-head"><h3 data-i="orderManagement">Order management</h3><span class="muted" id="orderCount">0</span></div>
+      <form id="orderForm">
+        <div class="formgrid">
+          <div class="field"><label data-i="customerName">Customer name</label><input id="oCustomer" required maxlength="60" placeholder="e.g. Sara"></div>
+          <div class="field"><label data-i="productName">Product / service</label><input id="oProduct" required maxlength="80" placeholder="e.g. Notebook"></div>
+          <div class="field"><label data-i="quantity">Quantity</label><input id="oQty" type="number" min="1" step="1" value="1" required></div>
+          <div class="field"><label data-i="unitPrice">Selling price per unit (EGP)</label><input id="oPrice" type="number" min="0" step=".01" required placeholder="0.00"></div>
+          <div class="field"><label data-i="unitCost">Cost per unit (EGP)</label><input id="oCost" type="number" min="0" step=".01" value="0" required></div>
+          <div class="field"><label data-i="orderStatus">Status</label><select id="oStatus"><option value="Pending" data-i="pending">Pending</option><option value="Completed" data-i="completed">Completed</option></select></div>
+        </div>
+        <div class="actions"><button class="primary" type="submit" data-i="saveOrder">Save order</button></div>
+      </form>
+      <div class="section-head" style="margin-top:25px"><h3 data-i="allOrders">All orders</h3></div>
+      <div class="table-wrap"><table><thead><tr><th data-i="customer">Customer</th><th data-i="item">Item</th><th data-i="quantity">Qty</th><th data-i="total">Total</th><th data-i="profit">Profit</th><th data-i="status">Status</th><th></th></tr></thead><tbody id="orderRows"></tbody></table></div>
+    </div>
+  </section>
+
+  <section class="view" id="inventory">
+    <div class="card">
+      <div class="section-head"><h3 data-i="inventoryManagement">Inventory management</h3><span class="muted" id="productCount">0</span></div>
+      <form id="productForm"><div class="formgrid">
+        <div class="field"><label data-i="productName">Product name</label><input id="pName" required maxlength="80" placeholder="e.g. Notebook"></div>
+        <div class="field"><label data-i="sku">SKU (optional)</label><input id="pSku" maxlength="40" placeholder="NB-001"></div>
+        <div class="field"><label data-i="quantityInStock">Quantity in stock</label><input id="pQty" type="number" min="0" step="1" required value="1"></div>
+        <div class="field"><label data-i="costPrice">Cost price per unit (EGP)</label><input id="pCost" type="number" min="0" step=".01" value="0" required></div>
+      </div><div class="actions"><button class="primary" type="submit" data-i="saveProduct">Save product</button></div></form>
+      <div class="section-head" style="margin-top:25px"><h3 data-i="yourProducts">Your products</h3></div>
+      <div class="table-wrap"><table><thead><tr><th data-i="product">Product</th><th>SKU</th><th data-i="quantityInStock">In stock</th><th data-i="costPrice">Cost/unit</th><th></th></tr></thead><tbody id="productRows"></tbody></table></div>
+    </div>
+  </section>
+
+  <section class="view" id="assistant">
+    <div class="grid2">
+      <div class="card"><div class="section-head"><h3 data-i="replyTitle">Customer reply helper</h3><span class="pill" data-i="free">Free</span></div>
+        <p class="muted" data-i="replyIntro">Create a polite response using ready-made templates. This version works offline and does not connect to an AI service.</p>
+        <div class="formgrid">
+          <div class="field full"><label data-i="replyType">What do you need to say?</label><select id="replyType"><option value="thanks" data-i="thanks">Thank you for an order</option><option value="delay" data-i="delay">Order delay</option><option value="availability" data-i="availability">Product availability</option><option value="payment" data-i="payment">Payment reminder</option></select></div>
+          <div class="field"><label data-i="replyCustomerName">Customer name (optional)</label><input id="replyName" placeholder="Sara"></div>
+          <div class="field"><label data-i="replyBusinessName">Business name (optional)</label><input id="replyBusiness" placeholder="Masroofy Store"></div>
+          <div class="field full"><label data-i="extraDetails">Extra details (optional)</label><textarea id="replyDetails" rows="3" placeholder="Your order will arrive tomorrow..."></textarea></div>
+        </div>
+        <div class="actions"><button class="primary" id="generateReply" type="button" data-i="generate">Create reply</button></div>
+      </div>
+      <div class="card"><div class="section-head"><h3 data-i="yourReply">Your message</h3></div><div class="replybox" id="replyOutput" data-i="replyPlaceholder">Your generated message will appear here.</div><div class="actions"><button class="secondary" id="copyReply" type="button" data-i="copy">Copy message</button></div></div>
+    </div>
+  </section>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const translations={
+en:{tagline:"Your business, clearer.",dashboard:"Dashboard",orders:"Orders",inventory:"Inventory",assistant:"Reply helper",localdata:"Your data stays on this device",localdesc:"This starter version saves to this browser. Export a backup regularly.",workspace:"BUSINESS WORKSPACE",export:"Export backup",welcome:"Run your business with less guesswork.",welcomeSub:"A simple place to track orders, stock and money.",revenue:"Total sales",revenueSub:"From recorded orders",ordersCount:"Orders",ordersSub:"All recorded orders",stock:"Products in stock",stockSub:"Total available units",profit:"Estimated profit",profitSub:"Sales minus recorded costs",recent:"Recent orders",viewAll:"View all",customer:"Customer",item:"Item",total:"Total",status:"Status",shortcuts:"Quick actions",addOrder:"Add an order",addOrderSub:"Record a new sale",addProduct:"Add a product",addProductSub:"Update your stock",replyCustomer:"Reply to a customer",replySub:"Create a quick response",sample:"Load demo data",sampleSub:"See how the dashboard works",demoNote:"Demo data is only an example. You can clear it by deleting the sample entries.",orderManagement:"Order management",customerName:"Customer name",productName:"Product / service",quantity:"Quantity",unitPrice:"Selling price per unit (EGP)",unitCost:"Cost per unit (EGP)",orderStatus:"Status",pending:"Pending",completed:"Completed",saveOrder:"Save order",allOrders:"All orders",sku:"SKU (optional)",quantityInStock:"Quantity in stock",costPrice:"Cost price per unit (EGP)",saveProduct:"Save product",inventoryManagement:"Inventory management",yourProducts:"Your products",product:"Product",replyTitle:"Customer reply helper",free:"Free",replyIntro:"Create a polite response using ready-made templates. This version works offline and does not connect to an AI service.",replyType:"What do you need to say?",thanks:"Thank you for an order",delay:"Order delay",availability:"Product availability",payment:"Payment reminder",replyCustomerName:"Customer name (optional)",replyBusinessName:"Business name (optional)",extraDetails:"Extra details (optional)",generate:"Create reply",yourReply:"Your message",replyPlaceholder:"Your generated message will appear here.",copy:"Copy message",qty:"Qty",delete:"Delete",saved:"Saved successfully",deleted:"Deleted",copied:"Copied to clipboard",noOrders:"No orders yet. Add your first order above.",noProducts:"No products yet. Add your first product above.",fill:"Please complete the required fields.",confirmDelete:"Delete this entry?",backup:"Backup downloaded",replyMade:"Message created",hello:"Hello",thanksText:"Thank you for your order. We appreciate your support.",delayText:"We’re sorry, your order has been delayed. We’ll update you as soon as we have a confirmed delivery time.",availabilityText:"Thanks for checking with us. Please let us know which product and quantity you need so we can confirm availability.",paymentText:"A friendly reminder that payment for your order is still pending. Please contact us if you need the payment details.",detailsLabel:"Details",noData:"No data yet"},
+ar:{tagline:"إدارة أوضح لمشروعك.",dashboard:"لوحة التحكم",orders:"الطلبات",inventory:"المخزون",assistant:"مساعد الردود",localdata:"بياناتك محفوظة على هذا الجهاز",localdesc:"هذه النسخة تحفظ البيانات في المتصفح. نزّل نسخة احتياطية بانتظام.",workspace:"مساحة إدارة الأعمال",export:"تصدير نسخة احتياطية",welcome:"أدر مشروعك بوضوح أكبر.",welcomeSub:"مكان بسيط لمتابعة الطلبات والمخزون والأموال.",revenue:"إجمالي المبيعات",revenueSub:"من الطلبات المسجلة",ordersCount:"الطلبات",ordersSub:"كل الطلبات المسجلة",stock:"المنتجات في المخزون",stockSub:"إجمالي الوحدات المتاحة",profit:"الربح التقديري",profitSub:"المبيعات ناقص التكاليف المسجلة",recent:"أحدث الطلبات",viewAll:"عرض الكل",customer:"العميل",item:"المنتج",total:"الإجمالي",status:"الحالة",shortcuts:"إجراءات سريعة",addOrder:"إضافة طلب",addOrderSub:"تسجيل عملية بيع جديدة",addProduct:"إضافة منتج",addProductSub:"تحديث المخزون",replyCustomer:"الرد على عميل",replySub:"إنشاء رد سريع",sample:"تحميل بيانات تجريبية",sampleSub:"جرّب لوحة التحكم",demoNote:"البيانات التجريبية مجرد مثال ويمكن حذفها.",orderManagement:"إدارة الطلبات",customerName:"اسم العميل",productName:"المنتج أو الخدمة",quantity:"الكمية",unitPrice:"سعر البيع للوحدة (جنيه)",unitCost:"تكلفة الوحدة (جنيه)",orderStatus:"الحالة",pending:"قيد الانتظار",completed:"مكتمل",saveOrder:"حفظ الطلب",allOrders:"كل الطلبات",sku:"رمز المنتج (اختياري)",quantityInStock:"الكمية في المخزون",costPrice:"تكلفة الوحدة (جنيه)",saveProduct:"حفظ المنتج",inventoryManagement:"إدارة المخزون",yourProducts:"منتجاتك",product:"المنتج",replyTitle:"مساعد الرد على العملاء",free:"مجاني",replyIntro:"أنشئ رداً مهذباً باستخدام قوالب جاهزة. هذه النسخة تعمل دون إنترنت ولا تتصل بخدمة ذكاء اصطناعي.",replyType:"ماذا تريد أن تقول؟",thanks:"شكر على الطلب",delay:"تأخير الطلب",availability:"توفر المنتج",payment:"تذكير بالدفع",replyCustomerName:"اسم العميل (اختياري)",replyBusinessName:"اسم النشاط (اختياري)",extraDetails:"تفاصيل إضافية (اختياري)",generate:"إنشاء الرد",yourReply:"رسالتك",replyPlaceholder:"ستظهر رسالتك هنا.",copy:"نسخ الرسالة",qty:"الكمية",delete:"حذف",saved:"تم الحفظ بنجاح",deleted:"تم الحذف",copied:"تم النسخ",noOrders:"لا توجد طلبات بعد. أضف أول طلب.",noProducts:"لا توجد منتجات بعد. أضف أول منتج.",fill:"يرجى إكمال الحقول المطلوبة.",confirmDelete:"هل تريد حذف هذا العنصر؟",backup:"تم تنزيل النسخة الاحتياطية",replyMade:"تم إنشاء الرسالة",hello:"مرحباً",thanksText:"شكراً لطلبك. نقدر دعمك لنا.",delayText:"نعتذر عن تأخر طلبك. سنبلغك فور تأكيد موعد التسليم.",availabilityText:"شكراً لتواصلك معنا. أخبرنا بالمنتج والكمية المطلوبة حتى نؤكد التوفر.",paymentText:"نذكّرك بلطف بأن دفعة طلبك ما زالت معلّقة. تواصل معنا إذا احتجت إلى تفاصيل الدفع.",detailsLabel:"التفاصيل",noData:"لا توجد بيانات بعد"}
+};
+let lang=localStorage.getItem("masroofy_lang")||"en";
+let orders=JSON.parse(localStorage.getItem("masroofy_orders")||"[]");
+let products=JSON.parse(localStorage.getItem("masroofy_products")||"[]");
+const $=id=>document.getElementById(id), t=k=>translations[lang][k]||k;
+function money(n){return new Intl.NumberFormat(lang==="ar"?"ar-EG":"en-EG",{maximumFractionDigits:2}).format(n)+" EGP"}
+function save(){localStorage.setItem("masroofy_orders",JSON.stringify(orders));localStorage.setItem("masroofy_products",JSON.stringify(products));render()}
+function toast(msg){let el=$("toast");el.textContent=msg;el.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display="none",2200)}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function setLang(){document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";$("app").classList.toggle("rtl",lang==="ar");$("langBtn").textContent=lang==="en"?"العربية":"English";document.querySelectorAll("[data-i]").forEach(el=>{let key=el.dataset.i;if(translations[lang][key])el.textContent=translations[lang][key]});let active=document.querySelector(".nav button.active");if(active)$("pageTitle").textContent=t(active.dataset.view);render()}
+function showView(v){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("active",x.id===v));document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x.dataset.view===v));$("pageTitle").textContent=t(v);window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.go)));
+$("langBtn").onclick=()=>{lang=lang==="en"?"ar":"en";localStorage.setItem("masroofy_lang",lang);setLang()};
+$("orderForm").addEventListener("submit",e=>{e.preventDefault();let qty=Number($("oQty").value),price=Number($("oPrice").value),cost=Number($("oCost").value);if(qty<1||price<0||cost<0)return toast(t("fill"));orders.unshift({id:Date.now(),customer:$("oCustomer").value.trim(),product:$("oProduct").value.trim(),qty,price,cost,status:$("oStatus").value,date:new Date().toISOString()});e.target.reset();$("oQty").value=1;$("oCost").value=0;save();toast(t("saved"))});
+$("productForm").addEventListener("submit",e=>{e.preventDefault();products.unshift({id:Date.now(),name:$("pName").value.trim(),sku:$("pSku").value.trim(),qty:Number($("pQty").value),cost:Number($("pCost").value)});e.target.reset();$("pQty").value=1;$("pCost").value=0;save();toast(t("saved"))});
+function removeItem(type,id){if(!confirm(t("confirmDelete")))return;if(type==="order")orders=orders.filter(x=>x.id!==id);else products=products.filter(x=>x.id!==id);save();toast(t("deleted"))}
+function render(){
+ let revenue=orders.reduce((s,o)=>s+o.qty*o.price,0),profit=orders.reduce((s,o)=>s+o.qty*(o.price-o.cost),0),stock=products.reduce((s,p)=>s+p.qty,0);
+ $("revenue").textContent=money(revenue);$("profitVal").textContent=money(profit);$("ordersCountVal").textContent=orders.length;$("stockVal").textContent=stock;$("orderCount").textContent=orders.length;$("productCount").textContent=products.length;
+ const emptyOrders=`<tr><td colspan="7" class="empty">${t("noOrders")}</td></tr>`;
+ $("orderRows").innerHTML=orders.length?orders.map(o=>`<tr><td>${escapeHTML(o.customer)}</td><td>${escapeHTML(o.product)}</td><td>${o.qty}</td><td>${money(o.qty*o.price)}</td><td>${money(o.qty*(o.price-o.cost))}</td><td><span class="pill">${t(o.status.toLowerCase())}</span></td><td><button class="danger" onclick="removeItem('order',${o.id})">${t("delete")}</button></td></tr>`).join(""):emptyOrders;
+ $("recentRows").innerHTML=orders.length?orders.slice(0,5).map(o=>`<tr><td>${escapeHTML(o.customer)}</td><td>${escapeHTML(o.product)}</td><td>${money(o.qty*o.price)}</td><td><span class="pill">${t(o.status.toLowerCase())}</span></td></tr>`).join(""):`<tr><td colspan="4" class="empty">${t("noOrders")}</td></tr>`;
+ $("productRows").innerHTML=products.length?products.map(p=>`<tr><td>${escapeHTML(p.name)}</td><td>${escapeHTML(p.sku||"–")}</td><td>${p.qty}</td><td>${money(p.cost)}</td><td><button class="danger" onclick="removeItem('product',${p.id})">${t("delete")}</button></td></tr>`).join(""):`<tr><td colspan="5" class="empty">${t("noProducts")}</td></tr>`;
+}
+$("sampleBtn").onclick=()=>{if(orders.length||products.length){toast(t("demoNote"));return}orders=[{id:Date.now()+1,customer:"Sara",product:"Notebook",qty:2,price:75,cost:40,status:"Completed",date:new Date().toISOString()},{id:Date.now()+2,customer:"Omar",product:"Desk lamp",qty:1,price:220,cost:140,status:"Pending",date:new Date().toISOString()}];products=[{id:Date.now()+3,name:"Notebook",sku:"NB-01",qty:18,cost:40},{id:Date.now()+4,name:"Desk lamp",sku:"DL-02",qty:7,cost:140}];save();toast(t("saved"))};
+$("exportBtn").onclick=()=>{let data={app:"Masroofy",exportedAt:new Date().toISOString(),orders,products};let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="masroofy-backup.json";a.click();URL.revokeObjectURL(a.href);toast(t("backup"))};
+$("generateReply").onclick=()=>{let type=$("replyType").value,name=$("replyName").value.trim(),business=$("replyBusiness").value.trim(),details=$("replyDetails").value.trim();let intro=(lang==="ar"?"مرحباً":"Hello")+(name?" "+name:"")+",\n\n";let body=t(type==="thanks"?"thanksText":type==="delay"?"delayText":type==="availability"?"availabilityText":"paymentText");let result=intro+body+(details?"\n\n"+t("detailsLabel")+": "+details:"")+"\n\n"+(lang==="ar"?"مع التحية":"Best regards")+(business?"\n"+business:"");$("replyOutput").textContent=result;toast(t("replyMade"))};
+$("copyReply").onclick=async()=>{let value=$("replyOutput").textContent;if(!value||value===t("replyPlaceholder"))return;try{await navigator.clipboard.writeText(value);toast(t("copied"))}catch(e){toast("Clipboard unavailable in this browser")}};
+setLang();
+</script>
+</body></html>

@@ -1,0 +1,9 @@
+{
+  "name": "Masroofy Business Assistant",
+  "short_name": "Masroofy",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#101827",
+  "description": "A bilingual business assistant for orders, inventory and customer replies."
+}
